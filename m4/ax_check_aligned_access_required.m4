@@ -1,10 +1,10 @@
-# ====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_aligned_access_required.html
-# ====================================================================================
+# =====================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_aligned_access_required.html
+# =====================================================================================
 #
 # SYNOPSIS
 #
-#   AC_CHECK_ALIGNED_ACCESS_REQUIRED
+#   AX_CHECK_ALIGNED_ACCESS_REQUIRED
 #
 # DESCRIPTION
 #
@@ -18,6 +18,13 @@
 #   set a config.h define HAVE_ALIGNED_ACCESS_REQUIRED (name derived by
 #   standard usage). Structures loaded from a file (or mmapped to memory)
 #   should be accessed per-byte in that case to avoid segfault type errors.
+#
+#   The function checks if unaligned access would ignore the lowest bit of
+#   the address. If that happens or if the test binary crashes, aligned
+#   access is required.
+#
+#   If cross-compiling, assume that aligned access is needed to be safe. Set
+#   ax_cv_have_aligned_access_required=no to override that assumption.
 #
 # LICENSE
 #
@@ -34,7 +41,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -49,35 +56,36 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 10
 
 AC_DEFUN([AX_CHECK_ALIGNED_ACCESS_REQUIRED],
 [AC_CACHE_CHECK([if pointers to integers require aligned access],
   [ax_cv_have_aligned_access_required],
-  [AC_TRY_RUN([
-#include <stdio.h>
-#include <stdlib.h>
-
-int main()
-{
-  char* string = malloc(40);
-  int i;
-  for (i=0; i < 40; i++) string[[i]] = i;
-  {
-     void* s = string;
-     int* p = s+1;
-     int* q = s+2;
-
-     if (*p == *q) { return 1; }
-  }
-  return 0;
-}
-              ],
-     [ax_cv_have_aligned_access_required=yes],
+  [AC_RUN_IFELSE([
+    AC_LANG_PROGRAM([[@%:@include <stdlib.h>]],
+                    [[
+                      int i;
+                      int *p;
+                      int *q;
+                      char *str;
+                      str = (char *) malloc(40);
+                      for (i = 0; i < 40; i++) {
+                        *(str + i) = i;
+                      }
+                      p = (int *) (str + 1);
+                      q = (int *) (str + 2);
+                      return (*p == *q);
+                    ]])],
      [ax_cv_have_aligned_access_required=no],
-     [ax_cv_have_aligned_access_required=no])
-  ])
-if test "$ax_cv_have_aligned_access_required" = yes ; then
+     [ax_cv_have_aligned_access_required=yes],
+     [ax_cv_have_aligned_access_required=maybe])])
+
+if test "x$ax_cv_have_aligned_access_required" = "xmaybe"; then
+  AC_MSG_WARN([Assuming aligned access is required when cross-compiling])
+  ax_cv_have_aligned_access_required=yes
+fi
+
+if test "x$ax_cv_have_aligned_access_required" = "xyes"; then
   AC_DEFINE([HAVE_ALIGNED_ACCESS_REQUIRED], [1],
     [Define if pointers to integers require aligned access])
 fi

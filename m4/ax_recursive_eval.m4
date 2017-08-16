@@ -1,23 +1,20 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_gcc_version.html
+#    https://www.gnu.org/software/autoconf-archive/ax_recursive_eval.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Use AX_COMPILER_VERSION instead
 #
 # SYNOPSIS
 #
-#   AX_GCC_VERSION
+#   AX_RECURSIVE_EVAL(VALUE, RESULT)
 #
 # DESCRIPTION
 #
-#   This macro retrieves the gcc version and returns it in the GCC_VERSION
-#   variable if available, an empty string otherwise.
+#   Interpolate the VALUE in loop until it doesn't change, and set the
+#   result to $RESULT. WARNING: It's easy to get an infinite loop with some
+#   unsane input.
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -30,7 +27,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -45,20 +42,15 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 1
 
-AC_DEFUN([AX_GCC_VERSION], [
-  AC_OBSOLETE([$0], [;please use AX_COMPILER_VERSION instead])
-  AC_LANG_PUSH([C])
-  AC_REQUIRE([AX_COMPILER_VENDOR])
-  AC_REQUIRE([AX_COMPILER_VERSION])
-  AC_LANG_POP([C])
-  GCC_VERSION=""
-  ax_cv_gcc_version=""
-  AS_IF([test "X$ax_cv_c_compiler_vendor" = "Xgnu"],
-    [dnl
-    ax_cv_gcc_version=$ax_cv_c_compiler_version
-    GCC_VERSION=$ax_cv_gcc_version
-    ])
-  AC_SUBST([GCC_VERSION])
-])
+AC_DEFUN([AX_RECURSIVE_EVAL],
+[_lcl_receval="$1"
+$2=`(test "x$prefix" = xNONE && prefix="$ac_default_prefix"
+     test "x$exec_prefix" = xNONE && exec_prefix="${prefix}"
+     _lcl_receval_old=''
+     while test "[$]_lcl_receval_old" != "[$]_lcl_receval"; do
+       _lcl_receval_old="[$]_lcl_receval"
+       eval _lcl_receval="\"[$]_lcl_receval\""
+     done
+     echo "[$]_lcl_receval")`])

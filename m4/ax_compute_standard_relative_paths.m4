@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_compute_standard_relative_paths.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_compute_standard_relative_paths.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -34,7 +34,7 @@
 #        mandir (only for autoconf < 2.59c)
 #        lispdir (only for autoconf < 2.59c)
 #        sysconfdir
-#        sharestatedir
+#        sharedstatedir
 #        localstatedir
 #           runstatedir (only for autoconf >= 2.70)
 #        includedir
@@ -70,7 +70,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 12
 
 AU_ALIAS([ADL_COMPUTE_STANDARD_RELATIVE_PATHS], [AX_COMPUTE_STANDARD_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_STANDARD_RELATIVE_PATHS],
@@ -120,7 +120,7 @@ m4_version_prereq([2.59c],[TRIPLET(datarootdir,infodir)],[TRIPLET(prefix,infodir
 m4_version_prereq([2.59c],[TRIPLET(datarootdir,mandir)],[TRIPLET(prefix,mandir)]) dnl
 m4_version_prereq([2.59c],[TRIPLET(datarootdir,lispdir)],[TRIPLET(prefix,lispdir)]) dnl
 TRIPLET(prefix, sysconfdir) dnl
-TRIPLET(prefix, sharestatedir) dnl
+TRIPLET(prefix, sharedstatedir) dnl
 TRIPLET(prefix, localstatedir) dnl
   dnl only available for >=2.70
   m4_version_prereq([2.70],[TRIPLET(localstatedir,runstatedir)],[[]]) dnl

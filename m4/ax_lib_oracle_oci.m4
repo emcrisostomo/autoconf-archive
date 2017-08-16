@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_lib_oracle_oci.html
+#    https://www.gnu.org/software/autoconf-archive/ax_lib_oracle_oci.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,7 +26,7 @@
 #   NOTE: These options described above do not take yes|no values. If 'yes'
 #   value is passed, then WARNING message will be displayed, 'no' value, as
 #   well as the --without-oci-* variations will cause the macro to not check
-#   enything.
+#   anything.
 #
 #   This macro calls:
 #
@@ -48,7 +48,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 15
 
 AC_DEFUN([AX_LIB_ORACLE_OCI],
 [

@@ -1,6 +1,6 @@
-# ==================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_instantiations.html
-# ==================================================================================
+# ===================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_instantiations.html
+# ===================================================================================
 #
 # SYNOPSIS
 #
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   If the C++ compiler supports explicit instanciations syntax, define
+#   If the C++ compiler supports explicit instantiations syntax, define
 #   HAVE_INSTANTIATIONS.
 #
 # LICENSE
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([AC_CXX_EXPLICIT_INSTANTIATIONS], [AX_CXX_EXPLICIT_INSTANTIATIONS])
 AC_DEFUN([AX_CXX_EXPLICIT_INSTANTIATIONS],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_check_mysql.html
+#      https://www.gnu.org/software/autoconf-archive/ax_check_mysql.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -63,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 6
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -368,7 +368,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
                         AC_MSG_RESULT([yes])
                     fi
             else
-                    AC_MSG_ERROR([MINIMUM-VERSION varable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
+                    AC_MSG_ERROR([MINIMUM-VERSION variable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
             fi
         fi
 

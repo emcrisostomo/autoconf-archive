@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_gcc_func_attribute.html
+#  https://www.gnu.org/software/autoconf-archive/ax_gcc_func_attribute.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -61,9 +61,9 @@
 #    weak
 #    weakref
 #
-#   Unsuppored function attributes will be tested with a prototype returning
-#   an int and not accepting any arguments and the result of the check might
-#   be wrong or meaningless so use with care.
+#   Unsupported function attributes will be tested with a prototype
+#   returning an int and not accepting any arguments and the result of the
+#   check might be wrong or meaningless so use with care.
 #
 # LICENSE
 #
@@ -74,7 +74,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 7
 
 AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_func_attribute_$1])
@@ -174,6 +174,9 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
                 ],
                 [pure], [
                     int foo( void ) __attribute__(($1));
+                ],
+                [returns_nonnull], [
+                    void *foo( void ) __attribute__(($1));
                 ],
                 [unused], [
                     int foo( void ) __attribute__(($1));

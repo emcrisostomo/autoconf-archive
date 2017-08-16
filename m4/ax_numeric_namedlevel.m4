@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_numeric_namedlevel.html
+#  https://www.gnu.org/software/autoconf-archive/ax_numeric_namedlevel.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -37,8 +37,8 @@
 #     2| many   |many|much|(yes)
 #     1| some   |some|plus
 #
-#   note that a level can be construcct of (some|plus) = bit-0, (many|much)
-#   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 atleast in a
+#   note that a level can be constructed of (some|plus) = bit-0, (many|much)
+#   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 at least in a
 #   left-to-right order, ie. plusmanymore=7
 #
 #   Example usage:
@@ -62,7 +62,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -77,7 +77,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 10
 
 AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AX_NUMERIC_NAMEDLEVEL],

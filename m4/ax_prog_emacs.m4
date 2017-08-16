@@ -1,31 +1,36 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_gcc_libraries_dir.html
+#      https://www.gnu.org/software/autoconf-archive/ax_prog_emacs.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   This macro is obsolete because it depends on the obsolete macro
-#   AX_GCC_OPTION.
 #
 # SYNOPSIS
 #
-#   AX_GCC_LIBRARIES_DIR(VARIABLE)
+#   AX_PROG_EMACS
 #
 # DESCRIPTION
 #
-#   AX_GCC_LIBRARIES_DIR(VARIABLE) defines VARIABLE as the gcc libraries
-#   directory. The libraries directory will be obtained using the gcc
-#   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
+#   This macro allows the end user to specify a particular Emacs executable
+#   via a configure script command-line arg. For example:
 #
-#   Thanks to Alessandro Massignan for his helpful hints.
+#     ./configure EMACS=$HOME/build/GNU/emacs/src/emacs
+#
+#   It also arranges to mention env var EMACS in the './configure --help'
+#   output. See info node "(autoconf) Generic Programs" for details.
+#
+#   More precisely...
+#
+#   If env var EMACS is set, try to use its value directly, but avoid
+#   getting fooled by value 't' (set by older Emacsen for subprocesses). If
+#   no joy from the environment, search for "emacs" via AC_CHECK_PROG. If
+#   still no joy, display "Emacs not found; required!" and make configure
+#   exit failurefully. Otherwise, set shell var EMACS and AC_SUBST it, too.
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2016-2017 Thien-Thi Nguyen
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
-#   Free Software Foundation; either version 2 of the License, or (at your
+#   Free Software Foundation; either version 3 of the License, or (at your
 #   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
@@ -34,7 +39,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -49,23 +54,15 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 2
 
-AC_DEFUN([AX_GCC_LIBRARIES_DIR], [
-    AC_REQUIRE([AC_PROG_CC])
-    AC_REQUIRE([AC_PROG_SED])
+AC_DEFUN([AX_PROG_EMACS],[dnl
+AC_ARG_VAR([EMACS],[Use this Emacs to byte-compile the Emacs Lisp files.])
+dnl Allow env override but do not get fooled by 'EMACS=t'.
+test t = "$EMACS" && unset EMACS
+dnl The next line does nothing if var 'EMACS' is already set.
+AC_CHECK_PROG([EMACS], [emacs], [emacs])
+AS_IF([test "x$EMACS" = x],[AC_MSG_ERROR([Emacs not found; required!])])
+])dnl
 
-    AS_IF([test "x$GCC" = "xyes"],[
-        AX_GCC_OPTION([-print-search-dirs],[],[],[
-            AC_MSG_CHECKING([gcc libraries directory])
-            ax_gcc_libraries_dir="`$CC -print-search-dirs | $SED -n -e 's,^libraries:[ \t]*=,,p'`"
-            AC_MSG_RESULT([$ax_gcc_libraries_dir])
-            $1="$ax_gcc_libraries_dir"
-        ],[
-            unset $1
-        ])
-    ],[
-        AC_MSG_WARN([sorry, no gcc available])
-        unset $1
-    ])
-])
+dnl ax_prog_emacs.m4 ends here

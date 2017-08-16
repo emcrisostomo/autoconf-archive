@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cond_with_level.html
+#    https://www.gnu.org/software/autoconf-archive/ax_cond_with_level.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #    9 = insane
 #
 #   this macro is most handily it making Makefile.in/Makefile.am that have a
-#   set of with-level declarations, espcially optimization-levels
+#   set of with-level declarations, especially optimization-levels
 #
 #   the $withval shell-variable is set for further examination (it carries
 #   the numeric value of the various mnemonics above)
@@ -48,7 +48,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AU_ALIAS([AC_COND_WITH_LEVEL], [AX_COND_WITH_LEVEL])
 AC_DEFUN([AX_COND_WITH_LEVEL],

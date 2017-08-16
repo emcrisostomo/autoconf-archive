@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_perl_module_version.html
+#  https://www.gnu.org/software/autoconf-archive/ax_perl_module_version.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Checks to see if the list of 'Module Version' are avaiable in the
-#   system. If all the modules in the list are avaiable ACTION-IF-TRUE is
-#   executed. Case one module is not avaiable ACTION-IF-FALSE is executed
+#   Checks to see if the list of 'Module Version' are available in the
+#   system. If all the modules in the list are available ACTION-IF-TRUE is
+#   executed. Case one module is not available ACTION-IF-FALSE is executed
 #   and the macro execution is aborted. NOTE: Perl is needed.
 #
 #   Example:
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AX_PERL_MODULE_VERSION],[dnl

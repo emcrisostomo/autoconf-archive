@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
+#       https://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   not enforce using mico, if it is not found on the system. If MICO
 #   existence is critical for the building of your package, then you
 #   probably want to specify something like "AX_PKG_MICO(2.2.6 required)".
-#   Then, even if the --with-mico was not spcefied on the command line of
+#   Then, even if the --with-mico was not specified on the command line of
 #   the configure script, an error will be raised if mico was not found.
 #
 #   If the mico package is not found, abort configuration with error
@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],

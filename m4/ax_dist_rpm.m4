@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_dist_rpm.html
+#       https://www.gnu.org/software/autoconf-archive/ax_dist_rpm.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -11,7 +11,7 @@
 #   Adds support for a rpm dist target.
 #
 #   You will need to create a spec template with everything except the files
-#   and the Changlog. Use @PACKAGE@ and @VERSION@ to refer to the package
+#   and the Changelog. Use @PACKAGE@ and @VERSION@ to refer to the package
 #   name and version respectively.  The files and ChangeLog will be filled
 #   in automatically. For instance:
 #
@@ -61,7 +61,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 22
 
 AC_DEFUN([AX_DIST_RPM],
 [

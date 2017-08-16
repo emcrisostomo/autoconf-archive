@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_create_generic_config.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_create_generic_config.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Creates a generic PACKAGE-config file that has all the things that you
-#   want, hmm, well, atleast it has --cflags, --version, --libs. Ahhm, did
+#   want, hmm, well, at least it has --cflags, --version, --libs. Ahhm, did
 #   you see ax_path_generic in the autoconf-archive? ;-)
 #
 #   this macros saves you all the typing for a pkg-config.in script, you
@@ -44,7 +44,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -59,7 +59,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([AC_CREATE_GENERIC_CONFIG], [AX_CREATE_GENERIC_CONFIG])
 AC_DEFUN([AX_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file

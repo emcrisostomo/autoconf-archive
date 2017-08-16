@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_c_var_func.html
+#      https://www.gnu.org/software/autoconf-archive/ax_c_var_func.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -9,10 +9,10 @@
 # DESCRIPTION
 #
 #   This macro tests if the C complier supports the C9X standard __func__
-#   indentifier.
+#   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
-#   __func__ shall be implictly declared by the compiler as if, immediately
+#   __func__ shall be implicitly declared by the compiler as if, immediately
 #   following the opening brace of each function definition, the declaration
 #
 #     static const char __func__[] = "function-name";
@@ -35,7 +35,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 10
 
 AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],

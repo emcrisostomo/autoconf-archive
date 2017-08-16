@@ -1,6 +1,11 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_define_sub_path.html
+#    https://www.gnu.org/software/autoconf-archive/ax_define_sub_path.html
 # ===========================================================================
+#
+# OBSOLETE MACRO
+#
+#   This macro is obsolete because its been completely broken for several
+#   years without anybody noticing, so apparently it's not used very much.
 #
 # SYNOPSIS
 #
@@ -64,7 +69,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -79,7 +84,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],
@@ -87,7 +92,7 @@ AC_DEFUN([AX_DEFINE_SUB_PATH],
   test "_$prefix" = _NONE && prefix="$ac_default_prefix"
   test "_$exec_prefix" = _NONE && exec_prefix='${prefix}'
   P=`echo ifelse( $2, , [$]$1, [$]$2) | sed -e 's:^\${[a-z_]*prefix}:.:'`
-  ifelse ($3, ,
+  ifelse($3, ,
     AC_DEFINE($1, $P, [sub path $2]),
     AC_DEFINE($1, $P, $3))
 ])

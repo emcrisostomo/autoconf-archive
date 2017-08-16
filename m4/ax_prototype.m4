@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prototype.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prototype.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -13,10 +13,10 @@
 #   values found in <values1>, <values2>, ... respectively. <values1>,
 #   <values2>, ... contain a list of possible values for each corresponding
 #   tag and all combinations are tested. When AC_TRY_COMPILE(include, code)
-#   is successfull for a given substitution, the macro stops and defines the
+#   is successful for a given substitution, the macro stops and defines the
 #   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
 #   with values set to the current values of <TAG1>, <TAG2>, ... If no
-#   combination is successfull the configure script is aborted with a
+#   combination is successful the configure script is aborted with a
 #   message.
 #
 #   Intended purpose is to find which combination of argument types is
@@ -99,7 +99,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -114,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 8
 
 AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AX_PROTOTYPE],[

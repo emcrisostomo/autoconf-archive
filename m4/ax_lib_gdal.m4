@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_lib_gdal.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_gdal.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -39,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 4
 
 AC_DEFUN([AX_LIB_GDAL],
 [
@@ -59,7 +59,7 @@ AC_DEFUN([AX_LIB_GDAL],
     )
 
     if test ! -x "$GDAL_CONFIG"; then
-        AC_MSG_ERROR([gdal-config does not exist or it is not an exectuable file])
+        AC_MSG_ERROR([gdal-config does not exist or it is not an executable file])
             GDAL_CONFIG="no"
             found_gdal="no"
     fi
