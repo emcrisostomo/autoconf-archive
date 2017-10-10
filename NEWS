@@ -10,6 +10,14 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+* Noteworthy changes in release 2017.09.28 (2017-09-28) [stable]
+
+  The macros AX_PROG_HELP2MAN, AX_RECURSIVE_EVAL, AX_SUBDIRS_CONFIGURE,
+  AX_ELISP, and AX_PROG_EMACS have been added.
+
+  Various macros have received updates. Please check the ChangeLog file or the
+  history of the git repository for further details.
+
 * Noteworthy changes in release 2017.03.21 (2017-03-21) [stable]
 
   Obsolete macros AX_CXX_COMPILER_VENDOR, AX_GCC_LIBRARIES_DIR, AX_GCC_VERSION,
