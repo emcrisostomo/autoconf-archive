@@ -3,7 +3,7 @@
 # settings required by the maintainer-makefile module
 
 gnu_rel_host		:= ftp.gnu.org
-old_NEWS_hash		:= b59fa3d002aa90261fec5a87a3346c42
+old_NEWS_hash		:= 56570e4e5ecc76cd6aec96a672838de3
 gpg_key_ID		:= 99089D72
 today			:= $(date "+%Y-%m-%d")
 TAR_OPTIONS		+= --mtime=$(today)
@@ -33,7 +33,7 @@ $(STAGEDIR)/manifest:
 
 $(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2m4.py
 	$(PYTHON) $(srcdir)/macro2m4.py "$<" "$@"
-	@diff -u "$<" "$@" || (touch --date="1970-01-01 01:00:00" "$@"; false)
+	@diff -u "$<" "$@" || (touch -d "1970-01-01 01:00:00" "$@"; false)
 
 $(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(srcdir)/macro.py
 	$(PYTHON) $(srcdir)/macro2texi.py "$<" "$@"
