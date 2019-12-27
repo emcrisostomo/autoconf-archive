@@ -21,6 +21,7 @@
 #     QT_LIBS
 #     QT_MOC
 #     QT_UIC
+#     QT_RCC
 #     QT_LRELEASE
 #     QT_LUPDATE
 #     QT_DIR
@@ -53,7 +54,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 17
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
@@ -68,10 +69,15 @@ AC_DEFUN([AX_HAVE_QT],
   if test "$ver" ">" "Qt version 4"; then
     have_qt=yes
     # This pro file dumps qmake's variables, but it only works on Qt 5 or later
-    am_have_qt_pro=`mktemp`
-    am_have_qt_makefile=`mktemp`
+    am_have_qt_dir=`mktemp -d`
+    am_have_qt_pro="$am_have_qt_dir/test.pro"
+    am_have_qt_makefile="$am_have_qt_dir/Makefile"
     # http://qt-project.org/doc/qt-5/qmake-variable-reference.html#qt
     cat > $am_have_qt_pro << EOF
+win32 {
+    CONFIG -= debug_and_release
+    CONFIG += release
+}
 qtHaveModule(axcontainer):       QT += axcontainer
 qtHaveModule(axserver):          QT += axserver
 qtHaveModule(concurrent):        QT += concurrent
@@ -106,13 +112,15 @@ percent.commands = @echo -n "\$(\$(@))\ "
 QMAKE_EXTRA_TARGETS += percent
 EOF
     qmake $am_have_qt_pro -o $am_have_qt_makefile
-    QT_CXXFLAGS=`make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
-    QT_LIBS=`make -s -f $am_have_qt_makefile LIBS`
+    QT_CXXFLAGS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
+    QT_LIBS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile LIBS`
     rm $am_have_qt_pro $am_have_qt_makefile
+    rmdir $am_have_qt_dir
 
     # Look for specific tools in $PATH
     QT_MOC=`which moc`
     QT_UIC=`which uic`
+    QT_RCC=`which rcc`
     QT_LRELEASE=`which lrelease`
     QT_LUPDATE=`which lupdate`
 
@@ -126,6 +134,7 @@ EOF
     QT_LIBS=$QT_LIBS
     QT_UIC=$QT_UIC
     QT_MOC=$QT_MOC
+    QT_RCC=$QT_RCC
     QT_LRELEASE=$QT_LRELEASE
     QT_LUPDATE=$QT_LUPDATE])
   else
@@ -136,6 +145,7 @@ EOF
     QT_LIBS=
     QT_UIC=
     QT_MOC=
+    QT_RCC=
     QT_LRELEASE=
     QT_LUPDATE=
     AC_MSG_RESULT($have_qt)
@@ -145,6 +155,7 @@ EOF
   AC_SUBST(QT_LIBS)
   AC_SUBST(QT_UIC)
   AC_SUBST(QT_MOC)
+  AC_SUBST(QT_RCC)
   AC_SUBST(QT_LRELEASE)
   AC_SUBST(QT_LUPDATE)
 
